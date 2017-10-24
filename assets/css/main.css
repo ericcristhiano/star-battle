@@ -1,0 +1,727 @@
+/* ============= CSS RESET ============= */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: Cubano, sans-serif;
+    outline: none;
+    font-weight: normal;
+}
+
+body {
+    background: #050a23;
+}
+/* ============= /CSS RESET ============= */
+
+/* ============= PRESETS ============= */
+@font-face {
+    font-family: Cubano;
+    src: url(../fonts/Cubano-Regular.otf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+.flex-row {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.screen-item {
+    position: absolute;
+}
+
+.top-left {
+    left: 20px;
+    top: 20px;
+}
+
+.top-right {
+    right: 20px;
+    top: 20px;
+}
+
+.bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}
+/* ============= /PRESETS ============= */
+
+/* ============= GAME BOARD ============= */
+#game {
+    width: 960px;
+    height: 600px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: url(../img/bg1.png);
+    overflow: hidden;
+}
+/* ============= /GAME BOARD ============= */
+
+/* ============= HEADING ============= */
+.heading {
+    background: url(../img/header.png);
+    width: 309px;
+    height: 69px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    top: 20px;
+}
+
+.heading .score {
+    position: absolute;
+    top: 21px;
+    left: 15px;
+}
+
+.heading .score span {
+    margin-left: 7px;
+}
+
+.heading .timer {
+    position: absolute;
+    right: 68px;
+    top: 22px;
+    font-size: 12px;
+}
+
+.heading .timer span {
+    font-size: 16px;
+}
+/* ============= /HEADING ============= */
+
+/* ============= GAME ELEMENTS ============= */
+.btn {
+    background: #ff4f19;
+    border: 3px solid #db3f3d;
+    box-shadow: 0 0 0 3px #ffffff;
+}
+
+.btn.btn-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+}
+
+.sensible-areas {
+    position: relative;
+    width: 131px;
+    height: 131px;
+}
+
+.sensible-areas .left {
+    position: absolute;
+    left: 0;
+    top: 44px;
+}
+
+.sensible-areas .left img {
+    transform: rotate(180deg);
+}
+
+.sensible-areas .top {
+    position: absolute;
+    left: 44px;
+    top: 0;
+}
+
+.sensible-areas .top {
+    transform: rotate(270deg);
+}
+
+.sensible-areas .right {
+    position: absolute;
+    left: 88px;
+    top: 44px;
+}
+
+.sensible-areas .bottom {
+    position: absolute;
+    left: 44px;
+    top: 88px;
+}
+
+.sensible-areas .bottom img {
+    transform: rotate(90deg);
+}
+
+.sensible-areas {
+    z-index: 10;
+}
+
+.btn-mute,
+.decrease-font {
+    margin-right: 15px;
+}
+
+.decrease-font {
+    font-size: 14px;
+    margin-right: 15px;
+}
+
+.increase-font {
+    font-size: 20px;
+}
+
+.bar {
+    width: 138px;
+    background: #aa2626;
+    height: 31px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    position: relative;
+    top: 20px;
+    color: white;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.bar span {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+.bar .inner {
+    position: absolute;
+    height: 100%;
+    width: 50%;
+    right: 0;
+    background: #c93939;
+    transition: all .5s ease;
+}
+
+.bullet {
+    box-sizing: content-box;
+    width: 25px;
+    height: 4px;
+    background: #00ffff;
+    border: 2px solid #40ede8;
+    border-radius: 10px;
+}
+
+.bullet.enemy-bullet {
+    background: #900000;
+    border: 2px solid #e14940;
+}
+/* ============= /GAME ELEMENTS ============= */
+
+/* ============= MODALS ============= */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.75);
+    width: 100%;
+    height: 100%;
+    color: white;
+    z-index: 100;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .5s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal .modal-content {
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+/* ============= /MODALS ============= */
+
+/* ============= INSTRUCTIONS MODAL ============= */
+.title-heading {
+    margin-top: 20px;
+    animation: titleAnimation .65s ease forwards;
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+.title-heading h2 {
+    background: #ff4f19;
+    border: 2px solid #db3f3d;
+    padding: 10px 20px;
+    border-bottom-right-radius: 50px;
+    border-top-right-radius: 50px;
+    padding-left: 40px;
+    font-size: 30px;
+}
+
+.title-heading .logo {
+    position: relative;
+    left: 40px;
+}
+
+.instructions ul {
+    margin: 15px 0;
+    margin-bottom: 20px;
+}
+
+.instructions li {
+    margin-bottom: 6px;
+    animation: instructionsAnimation .5s ease forwards;
+    transform: scale(0);
+    opacity: 0;
+    font-size: 15px;
+}
+
+.instructions li:nth-child(1) {
+    animation-delay: 0.15s;
+}
+
+.instructions li:nth-child(2) {
+    animation-delay: 0.30s;
+}
+
+.instructions li:nth-child(3) {
+    animation-delay: 0.45s;
+}
+
+.instructions li:nth-child(4) {
+    animation-delay: 0.60s;
+}
+
+.instructions li:nth-child(5) {
+    animation-delay: 0.75s;
+}
+
+.instructions li:nth-child(6) {
+    animation-delay: 0.90s;
+}
+
+.instructions li:nth-child(7) {
+    animation-delay: 1.05s;
+}
+
+.instructions li:nth-child(8) {
+    animation-delay: 1.20s;
+}
+
+.instructions li:nth-child(9) {
+    animation-delay: 1.35s;
+}
+
+.instructions li:nth-child(10) {
+    animation-delay: 1.50s;
+}
+
+.instructions li:nth-child(11) {
+    animation-delay: 1.65s;
+}
+
+.instructions li:nth-child(12) {
+    animation-delay: 1.80s;
+}
+
+.instructions li:nth-child(13) {
+    animation-delay: 1.95s;
+}
+
+.btn-default {
+    border-radius: 200px;
+    color: white;
+    font-size: 30px;
+    padding: 5px 30px;
+    transition: all .5s ease;
+    position: relative;
+    display: block;
+    margin: auto;
+}
+
+.btn-default:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.btn-default:disabled:hover {
+    background: #ff4f19;
+}
+
+.btn-default::before {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.btn-default:active::before {
+    animation: rippleAnimation 1.15s ease forwards;
+}
+
+.btn-default:hover {
+    background: #f19e0d;
+}
+
+.instructions .btn-default {
+    animation: btnAnimation .75s ease forwards;
+    transform: scale(2);
+    opacity: 0;
+    animation-delay: 2.10s;
+
+}
+/* ============= /INSTRUCTIONS MODAL ============= */
+
+/* ============= FORM MODAL ============= */
+.form-modal form {
+    width: 200px;
+    margin: auto;
+}
+
+.form-modal .title-heading {
+    width: 370px;
+    margin: 20px auto;
+}
+
+.form-control {
+    padding: 10px 15px;
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 40px;
+    border: none;
+}
+/* ============= /FORM MODAL ============= */
+
+/* ============= RANKING MODAL ============= */
+.table-container {
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-bottom: 20px;
+}
+
+.ranking-modal .title-heading {
+    width: 390px;
+    margin: 20px auto;
+}
+
+.ranking-modal table {
+    border-collapse: collapse;
+    width: 540px;
+    margin: auto;
+}
+
+.ranking-modal thead tr,
+.ranking-modal tbody tr {
+    border: 2px solid #db3f3d;
+}
+
+.ranking-modal th {
+    background: #ff4f19;
+    font-size: 22px;
+    padding: 10px 0;
+    color: white;
+    text-align: left;
+}
+
+.ranking-modal th:first-child {
+    text-align: center;
+}
+
+.ranking-modal td {
+    font-size: 16px;
+    color: white;
+    padding: 4px 0;
+    background: #db3f3d;
+}
+
+.ranking-modal td:first-child {
+    text-align: center;
+}
+/* ============= /RANKING MODAL ============= */
+
+/* ============= GAME ELEMENTS ============= */
+.enemy {
+    width: 81px;
+    height: 81px;
+}
+
+.enemy .image {
+    background: url(../img/enemy.png);
+    width: 100%;
+    height: 100%;
+    animation: defaultShipAnimation .35s steps(4) infinite;
+    animation-play-state: paused;
+}
+
+.enemy.animate .image {
+    animation-play-state: running;
+}
+
+.friend {
+    width: 81px;
+    height: 81px;
+}
+
+.friend .image {
+    background: url(../img/friend.png);
+    width: 100%;
+    height: 100%;
+    animation: defaultShipAnimation .35s steps(4) infinite;
+    animation-play-state: paused;
+}
+
+.friend.animate .image {
+    animation-play-state: running;
+}
+
+.asteroid {
+    width: 73px;
+    height: 73px;
+}
+
+.asteroid .image {
+    background: url(../img/brown-asteroid.png);
+    width: 100%;
+    height: 100%;
+    animation: asteroidAnimation 2s linear infinite;
+    animation-play-state: paused;
+}
+
+.asteroid.animate .image {
+    animation-play-state: running;
+}
+
+.fuel {
+     width: 59px;
+     height: 68px;
+ }
+
+.fuel .image {
+    background: url(../img/fuel.png);
+    width: 100%;
+    height: 100%;
+    animation: fuelAnimation 2.5s linear infinite;
+    animation-play-state: paused;
+}
+
+.fuel.animate .image {
+    animation-play-state: running;
+}
+
+.ship {
+    width: 144px;
+    height: 68px;
+}
+
+.ship .image {
+    background: url(../img/ship.png);
+    width: 100%;
+    height: 100%;
+    animation: shipAnimation .50s steps(4) infinite;
+    animation-play-state: paused;
+    transform-origin: center left;
+    transition: all .5s ease;
+}
+
+.ship.animate .image {
+    animation-play-state: running;
+}
+
+.game-elements > div {
+    position: absolute;
+    left: 0;
+    top: 0;
+    transform: translate(-200px, -200px);
+}
+
+.explosion {
+    width: 87px;
+    height: 86px;
+}
+
+.explosion .image {
+    background: url(../img/explosion.png);
+    width: 100%;
+    height: 100%;
+    transform: scale(0);
+    animation: explosionAnimation .5s ease forwards;
+}
+/* ============= /GAME ELEMENTS ============= */
+
+/* ============= BACKGROUNDS ============= */
+.bg2 {
+    background: url(../img/bg2.png);
+    animation: backgroundAnimation 15s linear infinite;
+}
+
+.bg3 {
+    background: url(../img/bg3.png);
+    animation: backgroundAnimation 26s linear infinite;
+}
+
+.bg4 {
+    background: url(../img/bg4.png);
+    animation: backgroundAnimation 18s linear infinite;
+}
+
+.bg5 {
+    background: url(../img/bg5.png);
+    animation: backgroundAnimation 23s linear infinite;
+}
+
+.bg6 {
+    background: url(../img/bg6.png);
+    animation: backgroundAnimation 17s linear infinite;
+}
+
+.bg7 {
+    background: url(../img/bg7.png);
+    animation: backgroundAnimation 35s linear infinite;
+}
+
+.bg8 {
+    background: url(../img/bg8.png);
+    animation: backgroundAnimation 33s linear infinite;
+}
+
+.bg9 {
+    background: url(../img/bg9.png);
+    animation: backgroundAnimation 40s linear infinite;
+}
+
+.backgrounds .bg {
+    background-position: -200px 0;
+    animation-play-state: paused;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.backgrounds .bg.animate {
+    animation-play-state: running;
+}
+/* ============= /BACKGROUNDS ============= */
+
+/* ============= ANIMATIONS ============= */
+@keyframes rippleAnimation {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+    }
+}
+
+@keyframes instructionsAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes defaultShipAnimation {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -321px;
+    }
+}
+
+@keyframes asteroidAnimation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes fuelAnimation {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes shipAnimation {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -579px;
+    }
+}
+
+@keyframes backgroundAnimation {
+    0% {
+        background-position: 0;
+    }
+
+    100% {
+        background-position: -1160px;
+    }
+}
+
+@keyframes titleAnimation {
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes btnAnimation {
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes explosionAnimation {
+    100% {
+        transform: scale(1);
+    }
+}
+/* ============= /ANIMATIONS ============= */

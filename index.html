@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Star Battle</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <!-- /CSS -->
+</head>
+<body>
+    <!-- GAME BOARD -->
+    <section id="game">
+        <!-- BACKGROUNDS -->
+        <div class="backgrounds">
+            <div class="bg bg2"></div>
+            <div class="bg bg3"></div>
+            <div class="bg bg4"></div>
+            <div class="bg bg5"></div>
+            <div class="bg bg6"></div>
+            <div class="bg bg7"></div>
+            <div class="bg bg8"></div>
+            <div class="bg bg9"></div>
+        </div>
+        <!-- /BACKGROUNDS -->
+
+        <!-- FONT SIZE BUTTONS -->
+        <div class="top-left screen-item">
+            <div class="flex-row">
+                <button class="btn btn-circle font-size-btn decrease-font">A-</button>
+                <button class="btn btn-circle font-size-btn increase-font">A+</button>
+            </div>
+        </div>
+        <!-- FONT SIZE BUTTONS -->
+
+        <!-- HEADING -->
+        <div class="heading screen-item">
+            <p class="score" data-size="16">Score <span data-size="16">0</span></p>
+            <p class="timer" data-size="12"><span data-size="16">0</span>s</p>
+        </div>
+        <!-- /HEADING -->
+
+        <!-- SOUND AND PAUSE BUTTONS -->
+        <div class="top-right screen-item">
+            <button class="btn btn-circle font-size-btn btn-mute"><img src="assets/img/mute.png" alt="Mute button"></button>
+            <button class="btn btn-circle font-size-btn btn-pause"><img src="assets/img/pause.png" alt="Pause button"></button>
+        </div>
+        <!-- SOUND AND PAUSE BUTTONS -->
+
+        <!-- SENSIBLE AREAS -->
+        <div class="bottom-left screen-item">
+            <div class="sensible-areas">
+                <button class="btn btn-circle sensible-area left"><img src="assets/img/arrow.png" alt="Arrow" /></button>
+                <button class="btn btn-circle sensible-area top"><img src="assets/img/arrow.png" alt="Arrow" /></button>
+                <button class="btn btn-circle sensible-area right"><img src="assets/img/arrow.png" alt="Arrow" /></button>
+                <button class="btn btn-circle sensible-area bottom"><img src="assets/img/arrow.png" alt="Arrow" /></button>
+            </div>
+        </div>
+        <!-- SENSIBLE AREAS -->
+
+        <!-- FUEL COUNTER -->
+        <div class="bottom-right screen-item">
+            <div class="flex-row">
+                <div class="bar">
+                    <span>15</span>
+                    <div class="inner"></div>
+                </div>
+                <img src="assets/img/fuel.png" alt="Fuel icon">
+            </div>
+        </div>
+        <!-- /FUEL COUNTER -->
+
+        <!-- MODAL INSTRUCTIONS -->
+        <div class="modal instructions active">
+            <div class="modal-content">
+                <div class="title-heading flex-row align-center">
+                    <img class="logo" src="assets/img/logo.png" alt="Star Battle Logo">
+                    <h2>How to Play Star Battle.</h2>
+                </div>
+                <ul>
+                    <li>1. Move the spaceship using the sensible areas in the screen;</li>
+                    <li>2. The timer present the time lapsed;</li>
+                    <li>3. The fuel counter show the remain fuel;</li>
+                    <li>4. During the flight, the spaceship needs to destroy the asteroids and enemy spaceships that are presented in the space;</li>
+                    <li>5. You can shoot pressing Space Bar;</li>
+                    <li>6. If the spaceship hits a asteroid or another spaceship, you lose 15 points of fuel;</li>
+                    <li>7. Enemy spaceship needs 1 shot to be destroyed, you will get 5 points for each enemy destroyed;</li>
+                    <li>8. Asteroid needs 2 shots to be destroyed, you will get 10 points for each asteroid destroyed;</li>
+                    <li>9. If you destroy a friendly spaceship, you lose 10 points;</li>
+                    <li>10. During the flight, the spaceship needs to collect fuel in the space;</li>
+                    <li>11. You can pause the game clicking in a button pause, or pressing the letter "p";</li>
+                    <li>12. Go beyond all limits;</li>
+                    <li>Battle in Space with Star Battle Championship...</li>
+                </ul>
+
+                <button class="btn btn-start btn-default">Start game</button>
+            </div>
+        </div>
+        <!-- /MODAL INSTRUCTIONS -->
+
+        <!-- MODAL FORM -->
+        <div class="modal form-modal">
+            <div class="modal-content">
+                <div class="title-heading flex-row align-center">
+                    <img class="logo" src="assets/img/logo.png" alt="Star Battle Logo">
+                    <h2>Game is over.</h2>
+                </div>
+
+                <form action="#" method="post" autocomplete="off">
+                    <input placeholder="name" type="text" class="form-control name" required>
+                    <button type="submit" disabled class="btn btn-default btn-continue">Continue</button>
+                </form>
+            </div>
+        </div>
+        <!-- /MODAL FORM -->
+
+        <!-- RANKING TABLE -->
+        <div class="modal ranking-modal">
+            <div class="modal-content">
+                <div class="title-heading flex-row align-center">
+                    <img class="logo" src="assets/img/logo.png" alt="Star Battle Logo">
+                    <h2>Ranking table</h2>
+                </div>
+
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Position</th>
+                                <th>Name</th>
+                                <th>Score</th>
+                                <th>Time</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <!-- HERE WILL BE POPULATE THE RANKING WITH JAVASCRIPT -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <button class="btn btn-restart btn-default">Start game</button>
+            </div>
+        </div>
+        <!-- /RANKING TABLE -->
+
+        <!-- GAME ELEMENTS -->
+        <section class="game-elements">
+            <!-- HERE WILL BE ADDED THE ELEMENTS OF GAME WITH JAVASCRIPT -->
+        </section>
+        <!-- /GAME ELEMENTS -->
+    </section>
+    <!-- /GAME BOARD -->
+
+    <!-- JS -->
+    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <!-- /JS -->
+</body>
+</html>
