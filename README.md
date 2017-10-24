@@ -1,6 +1,6 @@
 # Star Battle Game
 
-> This is a game developed using Javascript ES6 in the WorldSkills Competition 2017 Abu Dhabi
+> This is a game developed using Javascript ES6 in the [WorldSkills Competition 2017 Abu Dhabi](https://worldskillsabudhabi2017.com/en/skills/web-design-development/)
 
 ## About
 
